@@ -17,17 +17,23 @@ int main()
     try
     {
         read("data.txt", tarifs, size);
+        cout << "***** Телефонный разговор *****\n\n";
         for (int i = 0; i < size; i++)
         {
-            cout << tarifs[i]->duration.second << '\n';
-            cout << tarifs[i]->duration.minute << '\n';
-            cout << tarifs[i]->duration.hour << '\n';
-            cout << tarifs[i]->call_date.day << ' ';
-            cout << tarifs[i]->call_date.month << ' ';
-            cout << tarifs[i]->call_date.year << '\n';
-            cout << tarifs[i]->title << '\n';
-            cout << tarifs[i]->price << '\n';
+            cout << "Номер телефона ";
             cout << tarifs[i]->phone_number << '\n';
+            cout << "Длительность ";
+            cout << tarifs[i]->duration.second << ':';
+            cout << tarifs[i]->duration.minute << ':';
+            cout << tarifs[i]->duration.hour << '\n';
+            cout << "Дата звонка ";
+            cout << tarifs[i]->call_date.day << '-';
+            cout << tarifs[i]->call_date.month << '-';
+            cout << tarifs[i]->call_date.year << '\n';
+            cout << "Название тарифа ";
+            cout << tarifs[i]->title << '\n';
+            cout << "Цена одной минуты ";
+            cout << tarifs[i]->price << '\n';
 
             cout << '\n';
         }
