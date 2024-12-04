@@ -12,6 +12,7 @@ int main()
     cout << "Лабораторная работа №8. GIT\n";
     cout << "Вариант №9. Телефонные разговоры\n";
     cout << "Автор: Петров Станислав\n\n";
+    cout << "Группа: 24ПИнж\n";
     tarif* tarifs[MAX_FILE_ROWS_COUNT];
     int size;
     try
