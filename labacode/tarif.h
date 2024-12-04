@@ -10,7 +10,7 @@ struct date
     int year;
 };
 
-struct time
+struct start_time
 {
     int second;
     int minute;
@@ -21,9 +21,9 @@ struct tarif
 {
     char phone_number[MAX_STRING_SIZE];
     date call_date;
-    time duration;
-    char title;
-    int price;
+    start_time duration;
+    char title[MAX_STRING_SIZE];
+    char price[MAX_STRING_SIZE];
 };
 
 
