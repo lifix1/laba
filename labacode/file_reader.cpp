@@ -1,47 +1,41 @@
 #include "file_reader.h"
-#include "constants.h"
-
 #include <fstream>
 #include <cstring>
 
-date convert(char* str)
-{
-    date result;
-    char* context = NULL;
-    char* str_number = strtok_s(str, ".", &context);
-    result.day = atoi(str_number);
-    str_number = strtok_s(NULL, ".", &context);
-    result.month = atoi(str_number);
-    str_number = strtok_s(NULL, ".", &context);
-    result.year = atoi(str_number);
-    return result;
+int convertTimeToSeconds(const char* time_str) {
+    int hours, minutes, seconds;
+    sscanf(time_str, "%d:%d:%d", &hours, &minutes, &seconds);
+    return hours * 3600 + minutes * 60 + seconds;
 }
 
-void read(const char* file_name, tarif* array[], int& size)
-{
+void read(const char* file_name, Call* array[], int& size) {
     std::ifstream file(file_name);
-    if (file.is_open())
-    {
+    if (file.is_open()) {
         size = 0;
-        char tmp_buffer[MAX_STRING_SIZE];
-        while (!file.eof())
-        {
-            tarif* item = new tarif;
-            file >> item->duration.second;
-            file >> item->duration.minute;
-            file >> item->duration.hour;
-            file >> tmp_buffer;
-            item->call_date = convert(tmp_buffer);
-            file.read(tmp_buffer, 1);
-            file.getline(item->title, MAX_STRING_SIZE);
-            file.getline(item->price, MAX_STRING_SIZE);
-            file.getline(item->phone_number, MAX_STRING_SIZE);
-            array[size++] = item;
+        while (!file.eof()) {
+            Call* call = new Call;
+
+            file >> call->number;
+
+            file >> call->date;
+
+            char time_buffer[9];
+            file >> time_buffer;
+            call->time = std::string(time_buffer);
+
+            char duration_buffer[9];
+            file >> duration_buffer;
+            call->duration = convertTimeToSeconds(duration_buffer);
+
+            file >> call->tariff;
+
+            file >> call->cost;
+
+            array[size++] = call;
         }
         file.close();
     }
-    else
-    {
+    else {
         throw "Ошибка открытия файла";
     }
 }

@@ -3,6 +3,6 @@
 
 #include "tarif.h"
 
-void read(const char* file_name, tarif* array[], int& size);
+void read(const char* file_name, Call* array[], int& size);
 
-#endif
+#endif 

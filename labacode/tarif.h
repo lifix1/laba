@@ -1,30 +1,15 @@
 #ifndef TARIF_H
 #define TARIF_H
 
-#include "constants.h"
+#include <string>
 
-struct date
-{
-    int day;
-    int month;
-    int year;
+struct Call {
+    std::string number;   
+    std::string date;      
+    std::string time;     
+    int duration;          
+    std::string tariff;    
+    double cost;           
 };
 
-struct start_time
-{
-    int second;
-    int minute;
-    int hour;
-};
-
-struct tarif
-{
-    char phone_number[MAX_STRING_SIZE];
-    date call_date;
-    start_time duration;
-    char title[MAX_STRING_SIZE];
-    char price[MAX_STRING_SIZE];
-};
-
-
-#endif
+#endif 
