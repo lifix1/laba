@@ -21,6 +21,9 @@
     <ClCompile Include="filter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="file_reader.h">
@@ -29,5 +32,14 @@
     <ClInclude Include="filter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="tarif.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data.txt" />
   </ItemGroup>
 </Project>

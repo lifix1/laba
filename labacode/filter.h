@@ -2,8 +2,6 @@
 #define FILTER_H
 
 #include "tarif.h"
-#include <vector>
-
 
 Call** filterCalls(
     Call* array[],
