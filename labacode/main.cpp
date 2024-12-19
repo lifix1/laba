@@ -95,12 +95,11 @@ int main(){
     cout << "Автор: Петров Станислав\n\n";
     cout << "Группа: 24ПИнж\n";
 
-    const int max_size = 100; // Максимальный размер массива
-    Call* calls[max_size];    // Массив указателей на структуры Call
-    int size;                 // Фактический размер массива
+    const int max_size = 100; 
+    Call* calls[max_size];    
+    int size;                 
 
     try {
-        // Чтение данных из файла
         read("data.txt", calls, size);
 
         std::cout << "\nПрочитано " << size << " записей:\n";
@@ -113,7 +112,6 @@ int main(){
                 << ", Стоимость: " << calls[i]->cost << "\n";
         }
 
-        // Основное меню
         while (true) {
             std::cout << "\nВыберите действие:\n";
             std::cout << "1. Фильтровать звонки (на мобильные телефоны или ноябрь 2021)\n";
@@ -160,7 +158,7 @@ int main(){
                         << ", Стоимость: " << filtered_calls[i]->cost << "\n";
                 }
 
-                delete[] filtered_calls; // Освобождение памяти
+                delete[] filtered_calls; 
             }
             else if (choice == 2) {
                 // Сортировка звонков
@@ -204,7 +202,6 @@ int main(){
                     continue;
                 }
 
-                // Выполняем сортировку
                 sort_function(calls, size, compare_function);
 
                 std::cout << "\nОтсортированные звонки:\n";
@@ -218,7 +215,6 @@ int main(){
                 }
             }
             else if (choice == 3) {
-                // Выход из программы
                 break;
             }
             else {
@@ -226,7 +222,6 @@ int main(){
             }
         }
 
-        // Освобождение памяти
         for (int i = 0; i < size; ++i) {
             delete calls[i];
         }
