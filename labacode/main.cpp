@@ -87,7 +87,6 @@ bool (*compareFunctions[])(const Call*, const Call*) = {
 };
 
 
-
 int main(){
     system("chcp 65001");
     cout << "Лабораторная работа №8. GIT\n";
