@@ -9,7 +9,7 @@ namespace unittestproject
 	TEST_CLASS(unittestproject)
 	{
 	public:
-		
+		// финалочка с кайфом
 		TEST_METHOD(TestMethod1)
 		{
 			Call testik[3];
